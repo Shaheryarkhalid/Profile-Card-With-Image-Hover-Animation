@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    --blue-color:#0396fd;
+}
+.Page{
+    height:100vh;
+    width: 100%;
+    background-color: var(--blue-color);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.Page .Content-Wrapper{
+    display: flex;
+    padding:200px;
+}
+.Content-Wrapper .content{
+    position: relative;
+    cursor: pointer;
+}
+.content .Animated-content{
+    position: absolute;
+    bottom:110%;
+    border-radius: 10px;
+    left: -50%;
+    z-index: 0;
+    transition: transform 0.5s ease , z-index 0s ease, left 0.5s ease;
+    transition-delay: 0s, 0.5s, 0.5s;
+}
+.content .Animated-content::before{
+    content: "";
+    border-width: 20px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    position: absolute;
+    left:30%;
+    top:98%;
+}
+.content .Animated-content img{
+    border-radius: 10px;
+    border:2px solid #fff;
+    box-shadow: 0 0 20px #666;
+}
+.content .Animated-content .Personal-details{
+    position: absolute;
+    bottom:-15px;
+    left:20px;
+    background-color: #fff;
+    padding:15px 20px;
+    border-radius: 15px;
+    opacity: 0;
+}
+.content .Animated-content .Personal-details::before{
+    position: absolute;
+    top:99%;
+    left:30%;
+    content: "";
+    border-style: solid;
+    border-width: 15px;
+    border-color: white transparent transparent transparent;
+}
+.Animated-content .Personal-details h6{
+    color: var(--blue-color);
+}
+.Content-Wrapper .content .Icon-Image:hover ~ .Animated-content{
+    left: -180px;
+    transform: translate(140px);
+    z-index: 1;
+    transition: left 0.5s ease, z-index 0s ease, transform 0.5s ease;
+    transition-delay: 0s, 0.5s, 0.5s;
+}
+.Content-Wrapper .content .Icon-Image:hover ~ .last{
+    left:-60px;
+    transform: translate(0);
+    transition: all 0.5s ease;
+}
+.Content-Wrapper .content .Icon-Image:hover ~ .Animated-content .Personal-details{
+    opacity: 1;
+    transition: all 0.5s linear;
+    transition-delay: 0.5s;
+}
+.content .Icon-Image{
+    margin:20px 10px;
+}
+.content .Icon-Image img{
+    padding: 2px;
+    background-color: #fff;
+    border: 2px solid var(--blue-color);
+    border-radius: 50px;
+    object-fit: cover;
+    box-shadow: 0 0 20px #555;
+}
